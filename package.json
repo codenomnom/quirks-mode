@@ -1,7 +1,10 @@
 {
   "name": "quirks-mode",
   "version": "0.0.1",
-  "repository": "https://github.com/codenomnom/quirks-mode.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codenomnom/quirks-mode.git"
+  },
   "author": "Andrey",
   "license": "MIT",
   "scripts": {
