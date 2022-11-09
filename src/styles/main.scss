@@ -1,0 +1,146 @@
+@import "parts/_normalize";
+@import "parts/_variables";
+@import "parts/_include-media";
+
+//@import "parts/_typography";
+@import "parts/_code";
+@import "parts/_header";
+@import "parts/_glitch";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+// Smooth scrolling IF user doesn't have a preference due to motion sensitivities
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  //background-color: $color-red; // debugs flickering and 1px scrollbar
+}
+
+body {
+  font-family: 'Poppins', serif;
+  font-size: 16px;
+
+  font-family: 'Source Serif Pro';
+  font-size: 18px;
+
+  color: #0D112B;
+  color: #555;
+  //line-height: 26px;
+  position: relative;
+
+  background-color: $color-page-background;
+  scrollbar-gutter: stable both-edges;
+}
+
+///////////////
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+section {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section + section p {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+ul, ol {
+  list-style: none;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.pages {
+  &-list {
+    li {
+      border-bottom: 1px solid lightgray;
+
+      a {
+        font-family: 'Poppins', serif;
+        font-size: 16px;
+
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 0 0.5rem 0;
+
+        transition: padding-left .25s ease;
+
+        &:hover {
+          padding-left: 0.5rem;
+        }
+      }
+
+      .date {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .show-all {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+a {
+  color: inherit;
+  color: $color-red;
+  text-decoration: none;
+  transition: color .25s ease, opacity .25s ease;
+
+  &:hover {
+    //color: #909090;
+    opacity: 0.7;
+  }
+}
+
+.text {
+  a {
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins';
+  font-weight: 900;
+
+  font-family: 'Source Serif Pro';
+  //font-weight: 600;
+  color: #111827;
+}
+
+h1 {
+  body.home & {
+    font-size: 4rem;
+  }
+  font-size: 3rem;
+}
+
+//@import "parts/_print";

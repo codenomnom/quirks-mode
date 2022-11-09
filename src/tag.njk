@@ -1,0 +1,19 @@
+---
+pagination:
+  data: collections.tags
+  size: 1
+  alias: tag
+  generatePageOnEmptyData: true
+  addAllPagesToCollections: true
+  filter:
+    - tagList
+layout: layouts/page.njk
+permalink: "tags/{{ tag | slugify }}/index.html"
+eleventyComputed:
+  title: "Quirks for: “{{ tag }}”"
+---
+{%- set limit = 0 -%}
+{% for tag in pagination.items %}
+  {%- set hideTagsHeader = true -%}
+  {% include 'pages-in-tag.njk' %}
+{% endfor %}

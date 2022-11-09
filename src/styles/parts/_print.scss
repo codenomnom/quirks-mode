@@ -1,0 +1,46 @@
+@media print {
+  nav {
+    flex-wrap: wrap; /* TODO: move to main.css? */
+  }
+  nav section {
+    flex-basis: 100%;
+  }
+}
+
+.media {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: lightblue;
+
+  div {
+    display: none;
+    margin: 0 5px;
+  }
+
+  @include media(">=3xl") {
+    .xl3 { display: block };
+  }
+
+  @include media(">=2xl", "<3xl") {
+    .xl2 { display: block };
+  }
+
+  @include media(">=xl", "<2xl") {
+    .xl { display: block };
+  }
+
+  @include media(">=lg", "<xl") {
+    .lg { display: block };
+  }
+  @include media(">=md", "<lg") {
+    .md { display: block };
+  }
+  @include media(">=sm", "<md") {
+    .sm { display: block };
+  }
+  @include media("<sm") {
+    .xs { display: block };
+  }
+}

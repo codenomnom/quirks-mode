@@ -1,0 +1,20 @@
+<ul class="pages-list">
+  {% for page in pages -%}
+    <li>
+      <a href="{{ page.url }}">
+          <span class="title">
+            {{ page.fileSlug | getPageIndex }}.
+            {{ page.data.title | safe }}
+          </span>
+
+        <span class="date">
+            {{ page.date | postDate }}
+          </span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{%- if limit and totalPages > limit -%}
+  <a class="show-all" href="{%- if tagURL -%}{{ tagURL }}{%- else -%}/tags/{%- endif -%}">— show all ({{ totalPages }})</a>
+{%- endif -%}

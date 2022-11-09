@@ -1,0 +1,32 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+
+  position: relative;
+  width: fit-content;
+}
+
+$h2-font-size: 35.16px; // 33.20px;
+$h3-font-size: 28.13px; // 26.56px;
+$h4-font-size: 22.50px; // 21.25px;
+$h5-font-size: 17px;
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: color .3s ease, opacity .3s ease;
+
+  & > img {
+    vertical-align: top; // removes whitespace below image
+  }
+}
+
+.italic {
+  font-style: italic;
+}
+
+abbr {
+  cursor: help;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "quirks-mode",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codenomnom/quirks-mode.git"
+  },
+  "author": "Andrey",
+  "license": "MIT",
+  "scripts": {
+    "watch:sass": "sass --no-source-map --watch src/styles:dist/css",
+    "start:sass": "sass src/styles:dist/css",
+    "build:sass": "sass src/styles:dist/css --style compressed",
+    "watch:eleventy": "eleventy --serve",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all start:sass --parallel watch:*",
+    "build": "npm-run-all build:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.56.0"
+  },
+  "dependencies": {
+    "luxon": "^3.1.0"
+  }
+}

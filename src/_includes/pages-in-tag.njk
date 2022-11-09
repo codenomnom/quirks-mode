@@ -1,0 +1,13 @@
+{% set tagURL %}/tags/{{ tag | slugify }}/{% endset %}
+
+<section class="pages">
+  {% if not hideTagsHeader %}
+    <h2>
+      <a href="{{ tagURL | url }}">{{ tag }}</a>
+    </h2>
+  {% endif %}
+
+  {%- set pages = collections[tag] | reverse | last(limit) -%}
+  {%- set totalPages = collections[tag].length -%}
+  {% include 'pages-list.njk' %}
+</section>
