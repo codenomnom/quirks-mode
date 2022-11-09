@@ -4,41 +4,29 @@ layout: 'layouts/root.njk'
 hideHeader: true
 ---
 
-<section>
+<section class="title">
   <h1 class="glitch" data-text="Quirks Mode">Quirks Mode</h1>
 </section>
 
 <section class="text">
   <p>
-    Front-end development <i>peculiarities</i>.
+    Front-end development <i>peculiarities</i>. Life is tough.
   </p>
 </section>
 
 <section class="pages">
-  <h2 style="font-size: 2rem; margin-bottom: 5px;">Pages</h2>
+  <h2 style="font-size: 2rem; margin-bottom: 5px;">Latest kinks</h2>
   <div style="margin-bottom: 2rem; font-size: 15px;">
-    tags: <a href="">all</a>, <a href="">html</a>, <a href="">css</a>, <a href="">js</a>
+    check <a href="/tags/">all</a>
+    or tagged as
+    {% for tag in collections.tags %}
+      <a href="/tags/{{ tag | slugify | url }}">{{ tag }}</a>
+      {%- if not loop.last -%},{%- endif -%}
+    {% endfor %}
   </div>
 
-  <ul class="pages-list">
-    {%- set totalPages = collections.pages.length -%}
-    {% for page in collections.pages | reverse | last(config.pages.home.limit) -%}
-      <li>
-        <a href="{{ page.url }}">
-          <span class="title">
-            {{ page.fileSlug | getPageIndex }}.
-            {{ page.data.title | safe }}
-          </span>
-
-          <span class="date">
-            {{ page.date | postDate }}
-          </span>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  {%- if totalPages > config.pages.home.limit -%}
-    <a class="show-all" href="pages">— show all ({{ totalPages }})</a>
-  {%- endif -%}
+  {%- set pages = collections.pages | reverse | last(config.pages.home.limit) -%}
+  {%- set totalPages = collections.pages.length -%}
+  {%- set limit = config.pages.home.limit -%}
+  {% include 'pages-list.njk' %}
 </section>

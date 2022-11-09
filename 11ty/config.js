@@ -12,6 +12,9 @@ const pages = {
   home: {
     limit: 2,
   },
+  tags: {
+    limit: 2,
+  },
 };
 
 module.exports = {

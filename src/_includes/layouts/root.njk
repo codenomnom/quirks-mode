@@ -21,10 +21,9 @@
 <body
   data-layout="{{ layout | parseLayoutName }}"
   class="
+    {%- if page.url == '/' -%}home {% endif %}
     {%- if templateClass -%}{{ templateClass }}{%- endif -%}
-    glitch-{%- if config.enableGlitch -%}enabled{%- else -%}disabled{%- endif -%}
-  "
->
+    glitch-{%- if config.enableGlitch -%}enabled{%- else -%}disabled{%- endif -%}">
 {%- if not hideHeader -%}
   {%- include "header.njk" -%}
 {%- endif -%}

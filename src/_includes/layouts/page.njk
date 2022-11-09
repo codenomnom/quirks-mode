@@ -3,7 +3,7 @@ layout: 'layouts/root.njk'
 ---
 
 <section>
-  <h1 class="glitch" data-text="{{ title | safe }}">{{ title | safe }}</h1>
+  <h1 class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>
   {{ content | safe }}
 </section>
 
