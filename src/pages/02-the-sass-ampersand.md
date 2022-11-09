@@ -4,5 +4,3 @@ tags:
   - css
   - scss
 ---
-
-# {{ title }}
