@@ -18,7 +18,13 @@
 
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body data-layout="{{ layout | parseLayoutName }}">
+<body
+  data-layout="{{ layout | parseLayoutName }}"
+  class="
+    {%- if templateClass -%}{{ templateClass }}{%- endif -%}
+    glitch-{%- if config.enableGlitch -%}enabled{%- else -%}disabled{%- endif -%}
+  "
+>
 {%- if not hideHeader -%}
   {%- include "header.njk" -%}
 {%- endif -%}

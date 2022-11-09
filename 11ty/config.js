@@ -18,4 +18,5 @@ module.exports = {
   dir,
   pages,
   TEMPLATE_ENGINE,
+  enableGlitch: false,
 };
