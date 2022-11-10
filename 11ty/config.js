@@ -1,7 +1,7 @@
 const dir = {
   input: 'src',
   output: 'dist',
-  content: 'pages',
+  content: 'pages/kinks',
   layoutsFolder: 'layouts',
 };
 dir.contentFull = `./${dir.input}/${dir.content}/`;

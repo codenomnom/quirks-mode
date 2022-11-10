@@ -34,10 +34,13 @@ body {
   font-size: 16px;
 
   font-family: 'Merriweather';
-  font-size: 17px;
+  font-size: 18px;
+
+  //font-family: 'Poppins', serif;
 
   color: #0D112B;
   color: #555;
+  color: $color-page-text;
   //line-height: 26px;
   position: relative;
 
@@ -110,13 +113,13 @@ ul, ol {
 }
 
 a {
-  color: inherit;
-  color: $color-red;
+  font-family: 'Poppins', serif;
+  color: $color-links;
   text-decoration: none;
   transition: color .25s ease, opacity .25s ease;
 
   &:hover {
-    //color: #909090;
+    color: $color-header;
     opacity: 0.7;
   }
 }
@@ -129,27 +132,56 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins';
-  font-weight: 900;
+  font-weight: 700;
+  color: #333;
+}
 
+h1 {
   font-family: 'Source Serif Pro';
-  //font-weight: 600;
-  color: #111827;
 }
 
 h1 {
   body.home & {
-    font-size: 5.5rem;
+    font-size: 5.0rem;
     margin-bottom: 8rem;
+    font-weight: normal;
+
+    // old school
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    padding: 0.7rem;
+
+    //display: inline-block;
+    color: white;
+    background-color: $color-header;
+
+    margin-top: 14px;
+    margin-left: -5rem;
+    padding-left: 5rem;
+
+    span {
+      &.upper {
+        cursor: zoom-in;
+      }
+      &.lower {
+        cursor: zoom-out;
+      }
+    }
   }
-  //margin-top: 0.5rem;
   font-size: 3rem;
+}
+
+::selection {
+  color: white;
+  background-color: #3772FF;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  //flex-direction: row-reverse;
   font-size: 14px;
-  margin-top: 2rem;
+  margin-top: 4rem;
 
   font-family: 'Montserrat';
   //font-weight: bold;

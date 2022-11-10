@@ -8,7 +8,7 @@ pagination:
   filter:
     - tagList
 layout: layouts/page.njk
-permalink: "tags/{{ tag | slugify }}/index.html"
+permalink: "/tags/{{ tag | slugify }}/index.html"
 eleventyComputed:
   title: "Quirks for: “{{ tag }}”"
 ---
