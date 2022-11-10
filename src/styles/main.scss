@@ -159,6 +159,9 @@ h1 {
     margin-left: -5rem;
     padding-left: 5rem;
 
+    display: inline-block;
+    padding-right: 1.8rem;
+
     span {
       &.upper {
         cursor: zoom-in;
