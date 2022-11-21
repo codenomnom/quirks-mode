@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *"
   pull_request:
 
 jobs:
@@ -38,4 +40,3 @@ jobs:
           publish_dir: ./dist
           cname: quirks-mode.com
           commit_message: ${{ github.event.head_commit.message }}
-
