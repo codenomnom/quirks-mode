@@ -1,7 +1,8 @@
 const { dir } = require('./config');
+const { orderByName } = require('./filters');
 
 const getPages = (collection) => {
-  return collection.getFilteredByGlob(`${dir.contentFull}/**/*.md`);
+  return orderByName(collection.getFilteredByGlob(`${dir.contentFull}/**/*.md`));
 }
 
 module.exports = {

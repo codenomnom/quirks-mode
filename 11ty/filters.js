@@ -11,6 +11,7 @@ exports.last = (collection, limit = 0) => limit ? collection.slice(0, limit) : c
 exports.reverse = (collection) => collection.reverse();
 exports.parseLayoutName = (name) => name.replace(LAYOUT_REGEX, '$1');
 exports.stripCodeTag = (str) => str.replace(CODE_REGEX, '$1');
+exports.orderByName = (collection) => (collection || []).sort((a, b) => a.filePathStem.localeCompare(b.filePathStem));
 
 exports.getPageIndex = (name) => {
   const dashIndex = name.indexOf('-');
@@ -19,4 +20,15 @@ exports.getPageIndex = (name) => {
     return index;
   }
   return name;
+};
+
+exports.registerFilters = (eleventyConfig) => {
+  eleventyConfig.addFilter('toJSON', exports.toJSON);
+  eleventyConfig.addFilter('postDate', exports.postDate);
+  eleventyConfig.addFilter('getPageIndex', exports.getPageIndex);
+  eleventyConfig.addFilter('last', exports.last);
+  eleventyConfig.addFilter('reverse', exports.reverse);
+  eleventyConfig.addFilter('parseLayoutName', exports.parseLayoutName);
+  eleventyConfig.addFilter('stripCodeTag', exports.stripCodeTag);
+  eleventyConfig.addFilter('orderByName', exports.orderByName);
 };

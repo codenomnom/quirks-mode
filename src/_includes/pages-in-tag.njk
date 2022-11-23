@@ -7,7 +7,7 @@
     </h2>
   {% endif %}
 
-  {%- set pages = collections[tag] | reverse | last(limit) -%}
+  {%- set pages = collections[tag] | orderByName | reverse | last(limit) -%}
   {%- set totalPages = collections[tag].length -%}
   {% include 'pages-list.njk' %}
 </section>
