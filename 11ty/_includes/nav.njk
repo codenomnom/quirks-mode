@@ -1,0 +1,12 @@
+<nav>
+  <h2 class="visually-hidden">Top level navigation menu</h2>
+  <ul class="nav">
+    {%- for entry in collections.all | eleventyNavigation %}
+      <li class="nav-item">
+        <span style="pointer-events: none;">{% if entry.url == page.url %}.{% else %}&nbsp;{% endif %}</span><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+{#      ˙#}
+{#      •#}
+{#      ¬#}
+    {%- endfor %}
+  </ul>
+</nav>

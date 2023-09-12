@@ -1,7 +1,7 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const config = require('./11ty/config');
 const { getPages } = require('./11ty/collections');
-const { registerFilters } = require('./11ty/filters');
+const { registerFilters } = require('./11ty/filters/filters');
 
 module.exports = (eleventyConfig) => {
   const { dir, TEMPLATE_ENGINE } = config;

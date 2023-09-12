@@ -1,5 +1,5 @@
 .idea
 node_modules
-src/styles/main.css
+public/styles/main.css
 dist
 .parcel-cache

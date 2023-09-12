@@ -1,11 +1,11 @@
-@import "parts/_normalize";
-@import "_variables";
-@import "parts/_include-media";
+@import "normalize";
+@import "variables";
+@import "include-media";
 
 //@import "parts/_typography";
-@import "parts/_code";
-@import "parts/_header";
-@import "parts/_glitch";
+@import "code";
+@import "header";
+@import "glitch";
 
 * {
   box-sizing: border-box;

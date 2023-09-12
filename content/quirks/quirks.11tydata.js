@@ -5,8 +5,10 @@ const exclude = (data) => {
   return false;
 }
 module.exports = {
-  eleventyComputed: {
-    permalink: (data) => exclude(data) ? false : `/kinks/{{ page.fileSlug }}/`,
+  layout: 'layouts/post.njk',
+  tags: ['posts'],
+  eleventyComputed: { // TODO: is this needed?
+    permalink: (data) => exclude(data) ? false : `/quirks/{{ page.fileSlug }}/`,
     eleventyExcludeFromCollections: (data) => exclude(data)
   }
 }

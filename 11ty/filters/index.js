@@ -1,6 +1,6 @@
 const util = require('util');
 const { DateTime } = require('luxon');
-const { dir, TEMPLATE_ENGINE } = require('./config');
+const { dir, TEMPLATE_ENGINE } = require('../config');
 
 const LAYOUT_REGEX = new RegExp(`${dir.layoutsFolder}\\/(.*?)\\.${TEMPLATE_ENGINE}`, 'g');
 const CODE_REGEX = new RegExp('<code>(.*?)<\\/code>', 'g');
@@ -22,10 +22,22 @@ exports.getPageIndex = (name) => {
   return name;
 };
 
-exports.registerFilters = (eleventyConfig) => {
+exports.getTagsFromCollection = (collection) => {
+  let tagSet = new Set();
+  for(let item of collection) {
+    (item.data.tags || []).forEach(tag => tagSet.add(tag));
+  }
+  return Array.from(tagSet);
+};
+
+exports.filterTagsList = (tags) => (tags || []).filter(tag => ['all', 'nav', 'post', 'posts'].indexOf(tag) === -1);
+
+exports.register = (eleventyConfig) => {
   eleventyConfig.addFilter('toJSON', exports.toJSON);
   eleventyConfig.addFilter('postDate', exports.postDate);
   eleventyConfig.addFilter('getPageIndex', exports.getPageIndex);
+  eleventyConfig.addFilter('getTagsFromCollection', exports.getTagsFromCollection);
+  eleventyConfig.addFilter('filterTagsList', exports.filterTagsList);
   eleventyConfig.addFilter('last', exports.last);
   eleventyConfig.addFilter('reverse', exports.reverse);
   eleventyConfig.addFilter('parseLayoutName', exports.parseLayoutName);
