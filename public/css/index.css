@@ -152,6 +152,12 @@ a[href]:active {
 	text-decoration: underline;
 }
 
+a:hover {
+	-webkit-animation: cray 6s infinite steps(50);
+	animation: glitch 6s infinite steps(50);
+	display: inline-block;
+}
+
 /* Nav */
 .nav {
 	display: flex;
@@ -184,6 +190,7 @@ a[href]:active {
 time {
 	min-width: 120px;
 	color: #6b7280;
+	font-size: 14px;
 }
 
 /*main {*/
