@@ -20,6 +20,5 @@ exports.install = (eleventyConfig) => {
     });
     eleventyConfig.addPlugin(pluginNavigation);
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-    console.log('hello');
     eleventyConfig.addPlugin(pluginBundle);
 };
