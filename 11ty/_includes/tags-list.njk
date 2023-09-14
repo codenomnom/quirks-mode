@@ -1,7 +1,5 @@
-<div style="margin-bottom: 2rem; font-size: 12px;">
-  [<a href="/tags/">all</a>,
-  {% for tag in collections.tags | filterTagsList %}
-  <a href="/tags/{{ tag | slugify | url }}">{{ tag }}</a>
-  {%- if not loop.last -%},{%- endif -%}
-  {% endfor %}]
+<div style="margin-bottom: 2rem; font-size: 12px; user-select: none;">
+  tags: {% for tag in collections.tags | filterTagsList %}<a href="/tags/{{ tag | slugify | url }}">{{ tag }}</a>
+  {%- if not loop.last -%},&nbsp;{%- endif -%}
+  {% endfor %}, <a href="/tags/">+more</a>
 </div>
