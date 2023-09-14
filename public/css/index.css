@@ -177,7 +177,7 @@ a:hover {
 	/*margin-right: 1em;*/
 	text-decoration: none;
 }
-.nav-item a {
+.nav-item a, #footer-info a {
 	color: var(--text-color-link-hover);
 	text-decoration: none;
 }
