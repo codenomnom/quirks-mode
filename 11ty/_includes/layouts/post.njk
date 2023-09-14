@@ -9,13 +9,15 @@ layout: 'layouts/root.njk'
 <section>
   <h1 class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>
 
-  <ul class="post-metadata">
-    <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-    {%- for tag in tags | filterTagList %}
-      {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-      <li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-    {%- endfor %}
-  </ul>
+  <div class="post-metadata" style="display: flex;">
+    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+
+    {% set tagsList = tags %}
+    {% include "tags-list.njk" %}
+  </div>
+
+  <hr>
+
 
   {{ content | safe }}
 </section>
