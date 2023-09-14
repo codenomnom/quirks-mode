@@ -13,7 +13,7 @@ numberOfLatestPostsToShow: 2
   }
 {% endcss %}
 
-<section id="intro">
+<section id="home-intro">
   <h1 class="glitch" data-text="Quirks Mode" id="title">Quirks Mode</h1>
   <p>
     <i>(mostly)</i> front-end development <i><b>peculiarities</b></i>.
@@ -25,7 +25,7 @@ numberOfLatestPostsToShow: 2
 
 {#{% include 'newsletter.njk' %}#}
 
-<section class="posts">
+<section id="home-posts">
   <h2 style="margin-bottom: 5px;">Latest</h2>
 
 {#  {%- set pages = collections.pages | reverse | last(config.pages.home.limit) -%}#}
@@ -43,4 +43,12 @@ numberOfLatestPostsToShow: 2
   {% if morePosts > 0 %}
     <p style="font-size: 13px; margin-top: 20px;">{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in <a href="/quirks/">the archive</a></p>
   {% endif %}
+</section>
+
+<section id="home-submit">
+  <h2>Submit</h2>
+
+  <p>
+    Stumbled upon something kinky while writing software? Tell us!
+  </p>
 </section>

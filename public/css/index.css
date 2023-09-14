@@ -67,7 +67,7 @@ body {
 	max-width: 640px;
 	min-height: 100vh;
 
-	padding: 3rem 1rem 0 1rem;
+	padding: 3rem 2rem 0 2rem;
 	font-size: 15px;
 	line-height: 21px;
 	/*font-size: .875rem*/
@@ -123,6 +123,12 @@ h1 {
 
 h2 {
 	font-size: 22px;
+	margin-block-start: 40px;
+}
+
+/*** pages **/
+section#home-posts, section#home-submit {
+	margin-top: 56px;
 }
 
 /*p:last-child {*/
