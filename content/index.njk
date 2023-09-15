@@ -36,8 +36,9 @@ numberOfLatestPostsToShow: 2
   {% set postsCount = collections.posts | length %}
   {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
 
-  {% set postslist = collections.posts | last(numberOfLatestPostsToShow) %}
+  {% set postslist = collections.posts | first(numberOfLatestPostsToShow) %}
   {% set morePosts = postsCount - numberOfLatestPostsToShow %}
+
   {% include "posts-list.njk" %}
 
   {% if morePosts > 0 %}

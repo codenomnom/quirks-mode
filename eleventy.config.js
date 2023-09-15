@@ -5,7 +5,7 @@ const config = require('./11ty/config');
 const filters = require('./11ty/filters');
 const plugins = require('./11ty/plugins');
 
-const { getPages } = require('./11ty/collections');
+const { getPosts } = require('./11ty/collections');
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = function(eleventyConfig) {
@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
 
     filters.register(eleventyConfig);
 
-    eleventyConfig.addCollection('pages', getPages);
+    eleventyConfig.addCollection('posts', getPosts);
     eleventyConfig.addCollection('tags', (collection) => {
         const tags = new Set();
         collection.getAll().forEach((page) => (page.data.tags || []).forEach((tag) => tags.add(tag)));
@@ -46,18 +46,6 @@ module.exports = function(eleventyConfig) {
         return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
     });
 
-    // Get the first `n` elements of a collection.
-    eleventyConfig.addFilter('head', (array, n) => {
-        if(!Array.isArray(array) || array.length === 0) {
-            return [];
-        }
-        if( n < 0 ) {
-            return array.slice(n);
-        }
-
-        return array.slice(0, n);
-    });
-
     // Return the smallest number argument
     eleventyConfig.addFilter('min', (...numbers) => {
         return Math.min.apply(null, numbers);
@@ -80,7 +68,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.amendLibrary('md', mdLib => {
         mdLib.use(markdownItAnchor, {
             permalink: markdownItAnchor.permalink.ariaHidden({
-                placement: 'after',
+                placement: 'before',
                 class: 'header-anchor',
                 symbol: '#',
                 ariaHidden: false,

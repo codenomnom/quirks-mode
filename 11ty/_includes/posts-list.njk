@@ -11,7 +11,7 @@
 {% include "tags-list.njk" %}
 
 <ul class="posts-list">
-{% for post in postslist | reverse %}
+{% for post in postslist %}
 	<li class="posts-list-item{% if post.url == url %} posts-list-item-active{% endif %}">
 		<time class="posts-list-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd MMM yyyy") }}</time>
 		<a href="{{ post.url }}" class="posts-list-link">{% if post.data.title %}{{ post.data.title | stripCodeTag }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>

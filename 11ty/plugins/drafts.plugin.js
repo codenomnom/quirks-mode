@@ -3,7 +3,7 @@ function eleventyComputedPermalink() {
 	// `addGlobalData` acts like a global data file and runs the top level function it receives.
 	return (data) => {
 		// Always skip during non-watch/serve builds
-		if(data.draft && !process.env.BUILD_DRAFTS) {
+		if(data.draft && !process.env.BUILD_DRAFTS) { // || data.page.date >= new Date()
 			return false;
 		}
 
@@ -16,7 +16,7 @@ function eleventyComputedExcludeFromCollections() {
 	// `addGlobalData` acts like a global data file and runs the top level function it receives.
 	return (data) => {
 		// Always exclude from non-watch/serve builds
-		if(data.draft && !process.env.BUILD_DRAFTS) {
+		if(data.draft && !process.env.BUILD_DRAFTS) { // || data.page.date >= new Date()
 			return true;
 		}
 
