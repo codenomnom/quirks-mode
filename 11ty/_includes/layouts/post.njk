@@ -7,9 +7,9 @@ layout: 'layouts/root.njk'
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 
 <section>
-  <h1 class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>
+  <h1 id="post-title" class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>
 
-  <div class="post-metadata" style="display: flex;">
+  <div class="post-metadata" style="display: flex; justify-content: space-between">
     <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 
     {% set tagsList = tags %}
