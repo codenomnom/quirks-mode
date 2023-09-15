@@ -1,0 +1,21 @@
+a.header-anchor {
+  position: absolute;
+  margin-left: -20px;
+  float: left;
+  line-height: 1;
+  padding-right: 4px;
+  visibility: hidden;
+  width: 20px;
+  text-decoration: none;
+  color: inherit;
+  text-align: right;
+}
+
+h1:hover a.header-anchor,
+h2:hover a.header-anchor,
+h3:hover a.header-anchor,
+h4:hover a.header-anchor,
+h5:hover a.header-anchor,
+h6:hover a.header-anchor {
+  visibility: visible;
+}

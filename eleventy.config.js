@@ -60,8 +60,8 @@ module.exports = function(eleventyConfig) {
         return Array.from(tagSet);
     });
 
-    eleventyConfig.addFilter('filterTagList', function filterTagList(tags) {
-        return (tags || []).filter(tag => ['all', 'nav', 'post', 'posts'].indexOf(tag) === -1);
+    eleventyConfig.addFilter('filterTagsList', function filterTagList(tags) {
+        return (tags || []).filter(tag => ['all', 'nav', 'post', 'posts', 'quirks'].indexOf(tag) === -1);
     });
 
     // Customize Markdown library settings:

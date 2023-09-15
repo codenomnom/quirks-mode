@@ -3,8 +3,11 @@ layout: 'layouts/root.njk'
 ---
 
 {# Only include the syntax highlighter CSS on blog posts #}
-{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
-{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+{%- css 'posts' %}
+  {% include 'public/css/posts.css' %}
+  {% include 'public/css/prism-diff.css' %}
+  {% include 'node_modules/prismjs/themes/prism-okaidia.css' %}
+{% endcss %}
 
 <section>
   <h1 id="post-title" class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>

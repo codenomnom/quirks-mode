@@ -18,6 +18,9 @@
     {% endcss %}
     <style>{% getBundle "css" %}</style>
 
+    <link rel="stylesheet" href="{% getBundleFileUrl 'css', 'posts' %}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{% getBundleFileUrl 'css', 'posts' %}"></noscript>
+
     <link rel="preload" href="/css/glitch.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/css/glitch.css"></noscript>
 
