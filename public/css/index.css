@@ -254,3 +254,11 @@ pre:not([class*="language-"]) {
 code {
 	word-break: break-all;
 }
+
+h1 > code, a > code {
+	font-family: inherit;
+	font-size: inherit;
+	padding: 3px 5px;
+	background: #E8E8E8;
+	border-radius: 2px;
+}

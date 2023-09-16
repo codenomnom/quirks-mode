@@ -6,6 +6,7 @@ eleventyNavigation:
   order: 0
 postsLimit: 5
 ---
+
 <section id="home-intro">
   <h1 class="glitch" data-text="Quirks Mode" id="title">Quirks Mode</h1>
   <p>
@@ -21,11 +22,6 @@ postsLimit: 5
 <section id="home-posts">
   <h2>Latest</h2>
 
-{#  {%- set pages = collections.pages | reverse | last(config.pages.home.limit) -%}#}
-{#  {%- set totalPages = collections.pages.length -%}#}
-{#  {%- set limit = config.pages.home.limit -%}#}
-{#  {% include 'pages-list.njk' %}#}
-
   {% set tagsList = collections.tags %}
   {% set showMoreTags = true %}
   {% include "tags-list.njk" %}
@@ -37,7 +33,6 @@ postsLimit: 5
 
 <section id="home-submit">
   <h2>Submit</h2>
-
   <p>
     Stumbled upon something kinky while writing software? Tell us!
   </p>

@@ -13,6 +13,7 @@ In a nutshell - you're free to **share** and **adapt** in any medium and format,
 
 ## Acknowledgments
 
-The design very losely based upon [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus/) theme, which was inspired by the [Hexo Cactus](https://github.com/probberechts/hexo-theme-cactus) theme. No <a href="https://www.grammarbook.com/blog/singular-vs-plural/plural-cactus-cacti-cactuses/" target="_blank">cacti</a> around though.
+The design very loosely based upon [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus/) theme, which was inspired by the [Hexo Cactus](https://github.com/probberechts/hexo-theme-cactus) theme. No <a href="https://www.grammarbook.com/blog/singular-vs-plural/plural-cactus-cacti-cactuses/" target="_blank">cacti</a> around though.
 
 ## Terms & Conditions
+Not sure what to put here - feel free to go wild :)
