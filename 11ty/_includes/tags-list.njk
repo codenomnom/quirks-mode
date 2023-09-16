@@ -1,4 +1,4 @@
-<div style="font-size: 12px; user-select: none;">
+<div class="tags-list">
   tags: {% for tag in tagsList | filterTagsList %}<a href="/tags/{{ tag | slugify | url }}">{{ tag }}</a>
   {%- if not loop.last -%},&nbsp;{%- endif -%}
   {% endfor %}
