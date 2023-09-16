@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 layout: layouts/page.njk
-title: About
+title: About Quirks Mode
 eleventyNavigation:
   key: about
   order: 1
