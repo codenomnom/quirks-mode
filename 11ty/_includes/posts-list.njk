@@ -1,20 +1,15 @@
-{%- css %}
-	.posts-list li {
-		display: flex;
-		/* align-items: center; */
-		margin-top: 8px; /* 16 on mobile */
-	}
-{% endcss %}
-
-{% set tagsList = collections.tags %}
-{% set showMoreTags = true %}
-{% include "tags-list.njk" %}
+{% set morePosts = allPosts.length - postsLimit %}
 
 <ul class="posts-list">
-{% for post in postslist %}
+{% for post in postsList %}
 	<li class="posts-list-item{% if post.url == url %} posts-list-item-active{% endif %}">
 		<time class="posts-list-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd MMM yyyy") }}</time>
 		<a href="{{ post.url }}" class="posts-list-link">{% if post.data.title %}{{ post.data.title | stripCodeTag }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
 	</li>
 {% endfor %}
 </ul>
+
+{% if morePosts > 0 %}
+{#	<p class="more-posts">{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in <a href="/quirks/">the archive</a></p>#}
+	<p class="more-posts">+{{ morePosts }} <a href="/quirks/">more</a></p>
+{% endif %}

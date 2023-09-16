@@ -2,12 +2,17 @@
 layout: 'layouts/root.njk'
 ---
 
-{# Only include the syntax highlighter CSS on blog posts #}
-{%- css 'posts' %}
-  {% include 'public/css/posts.css' %}
-  {% include 'public/css/prism-diff.css' %}
-  {% include 'node_modules/prismjs/themes/prism-okaidia.css' %}
-{% endcss %}
+{# all those would be included only on post page #}
+{%- css -%}
+  {%- include 'public/css/post.css' -%}
+{%- endcss -%}
+
+{# this is in the posts bucket, which is deferred #}
+{%- css 'deferred' -%}
+  {%- include 'public/css/deferred/post.css' -%}
+  {%- include 'public/css/deferred/prism-diff.css' -%}
+  {%- include 'node_modules/prismjs/themes/prism-okaidia.css' -%}
+{%- endcss -%}
 
 <section>
   <h1 id="post-title" class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>

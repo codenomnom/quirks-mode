@@ -10,10 +10,10 @@ pagination:
 layout: layouts/page.njk
 permalink: "/tags/{{ tag | slugify }}/index.html"
 eleventyComputed:
-  title: "Quirks for: “{{ tag }}”"
+  title: "Quirks for: <code>{{ tag }}</code>"
 ---
 {%- set limit = 0 -%}
 {% for tag in pagination.items %}
   {%- set hideTagsHeader = true -%}
-  {% include 'pages-in-tag.njk' %}
+  {% include 'posts-in-tag.njk' %}
 {% endfor %}

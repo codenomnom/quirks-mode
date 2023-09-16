@@ -12,17 +12,19 @@
 
     <meta name="generator" content="{{ eleventy.generator }}">
 
-    {%- css %}
+    {% css %}
       {% include "public/css/normalize.css" %}
-      {% include "public/css/index.css" %}
-    {% endcss %}
-    <style>{% getBundle "css" %}</style>
+      {%- include "public/css/index.css" -%}
+    {%- endcss -%}
+    <style>
+      {% getBundle "css" %}
+    </style>
 
-    <link rel="stylesheet" href="{% getBundleFileUrl 'css', 'posts' %}" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{% getBundleFileUrl 'css', 'posts' %}"></noscript>
+    <link rel="stylesheet" href="{% getBundleFileUrl 'css', 'deferred' %}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{% getBundleFileUrl 'css', 'deferred' %}"></noscript>
 
-    <link rel="preload" href="/css/glitch.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/glitch.css"></noscript>
+    <link rel="preload" href="/css/deferred/glitch.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/deferred/glitch.css"></noscript>
 
 {#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
 {#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}

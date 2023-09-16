@@ -2,8 +2,17 @@
 permalink: /tags/
 layout: layouts/page.njk
 title: Quirky Tags
+postsLimit: 2
 ---
 {%- set limit = config.pages.tags.limit -%}
-{% for tag in collections.tags %}
-  {% include 'pages-in-tag.njk' %}
-{% endfor %}
+
+<section id="tags-page--main">
+  <ul>
+    {% for tag in collections.tags | filterTagsList %}
+      {%- set postsInTag = collections[tag].length -%}
+      <li>
+        <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a> - {{ postsInTag }} post{{ 's' if postsInTag > 1 else '' }}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

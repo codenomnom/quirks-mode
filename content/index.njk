@@ -4,15 +4,8 @@ layout: 'layouts/root.njk'
 eleventyNavigation:
   key: home
   order: 0
-numberOfLatestPostsToShow: 2
+postsLimit: 5
 ---
-
-{%- css %}
-  .posts {
-    margin-top: 64px;
-  }
-{% endcss %}
-
 <section id="home-intro">
   <h1 class="glitch" data-text="Quirks Mode" id="title">Quirks Mode</h1>
   <p>
@@ -26,24 +19,20 @@ numberOfLatestPostsToShow: 2
 {#{% include 'newsletter.njk' %}#}
 
 <section id="home-posts">
-  <h2 style="margin-bottom: 5px;">Latest</h2>
+  <h2>Latest</h2>
 
 {#  {%- set pages = collections.pages | reverse | last(config.pages.home.limit) -%}#}
 {#  {%- set totalPages = collections.pages.length -%}#}
 {#  {%- set limit = config.pages.home.limit -%}#}
 {#  {% include 'pages-list.njk' %}#}
 
-  {% set postsCount = collections.posts | length %}
-  {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+  {% set tagsList = collections.tags %}
+  {% set showMoreTags = true %}
+  {% include "tags-list.njk" %}
 
-  {% set postslist = collections.posts | first(numberOfLatestPostsToShow) %}
-  {% set morePosts = postsCount - numberOfLatestPostsToShow %}
-
+  {% set allPosts = collections.posts %}
+  {% set postsList = collections.posts | first(postsLimit) %}
   {% include "posts-list.njk" %}
-
-  {% if morePosts > 0 %}
-    <p style="font-size: 13px; margin-top: 20px;">{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in <a href="/quirks/">the archive</a></p>
-  {% endif %}
 </section>
 
 <section id="home-submit">

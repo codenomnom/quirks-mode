@@ -1,5 +1,9 @@
 <nav id="nav-{{ navID or 'main' }}">
-  <h2 class="visually-hidden">Top level navigation menu</h2>
+  {%- if not navID -%}
+{#    TODO: figure out why this is here? :)#}
+    <h2 class="visually-hidden">Top level navigation menu</h2>
+  {%- endif -%}
+
   <ul class="nav">
     {%- for entry in collections.all | eleventyNavigation %}
       <li class="nav-item">
