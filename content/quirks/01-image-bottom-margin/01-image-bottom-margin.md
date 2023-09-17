@@ -1,7 +1,6 @@
 ---
 title: Image bottom margin
-date: 2023-01-03
-draft: true
+date: 2023-09-18
 tags:
 - html
 ---
