@@ -14,13 +14,18 @@
 	--text-color: var(--color-gray-90);
 	--text-color-link: #082840;
 	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
+	/*--text-color-link-visited: #17050F;*/
 
 	--text-color-link: #0a31fd; /* BSOD */
 	--text-color-link-active: #0033bb;
 	--text-color-link-active: #ef476f;
 	--text-color-link-hover: #0a31fd;
+	--text-color-time: #6b7280;
+
+	--nav-link-color: #0a31fd;
+	--nav-hover-link-color: #ef476f;
 	/*--text-color-link-visited: #0033bb;*/
+	--code-block-background-color: #E8E8E8;
 
 	--syntax-tab-size: 2;
 }
@@ -34,9 +39,15 @@
 		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
 		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
+		--text-color-link-active: #ef476f;
+		/*--text-color-link-visited: #a6a6f8;*/
+		--text-color-time: var(--color-gray-50);
 
+		--nav-link-color: #1493fb;
+
+		/*--background-color: #1B2845;*/
 		--background-color: #15202b;
+		--code-block-background-color: #274060;
 	}
 }
 
@@ -210,11 +221,11 @@ a.header-anchor {
 	text-decoration: none;
 }
 .nav-item a, #footer-info a {
-	color: var(--text-color-link-hover);
+	color: var(--nav-link-color);
 	text-decoration: none;
 }
 .nav-item a:hover {
-	color: var(--text-color-link-active);
+	color: var(--nav-hover-link-color);
 	/*text-decoration: none;*/
 }
 .nav-item a[href]:not(:hover) {
@@ -227,7 +238,7 @@ a.header-anchor {
 
 time {
 	min-width: 120px;
-	color: #6b7280;
+	color: var(--text-color-time);
 	font-size: 14px;
 	word-spacing: -1px;
 }
@@ -237,7 +248,7 @@ code {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 3px 5px;
-	background: #E8E8E8;
+	background: var(--code-block-background-color);
 	border-radius: 2px;
 }
 
