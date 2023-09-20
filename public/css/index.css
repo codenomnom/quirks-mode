@@ -76,7 +76,7 @@ body {
 	max-width: 640px;
 	min-height: 100vh;
 
-	padding: 3rem 2rem 0 2rem;
+	padding: 48px 32px 0 32px;
 	font-size: 15px;
 	line-height: 21px;
 	/*font-size: .875rem*/
@@ -273,4 +273,25 @@ pre:not([class*="language-"]) {
 }
 code {
 	word-break: break-all;
+}
+
+
+@media screen and (max-width: 480px) {
+	body {
+		overflow: auto;
+		padding: 24px 24px 4px 24px;
+	}
+	header {
+		margin-bottom: 16px;
+	}
+	footer {
+		flex-direction: column-reverse;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	ul.posts-list li {
+		flex-direction: column;
+		margin-bottom: 16px;
+	}
 }
