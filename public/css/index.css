@@ -216,8 +216,8 @@ a.header-anchor {
 .nav {
 	display: flex;
 	padding: 0;
-	margin: 0;
 	list-style: none;
+	margin: 0 0 0 -8.25px;
 }
 .nav-item {
 	display: inline-block;
