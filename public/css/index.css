@@ -204,7 +204,8 @@ a[href]:active {
 a:hover {
 	-webkit-animation: glitch 6s infinite steps(50);
 	animation: glitch 6s infinite steps(50);
-	display: inline-block;
+	/*TODO: not sure why we need inline-block - it causes issues*/
+	/*display: inline-block;*/
 }
 
 a.header-anchor {
