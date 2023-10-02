@@ -176,6 +176,11 @@ section#tags-page--main ul li {
 	margin-bottom: 8px;
 }
 
+/* page: post */
+section.post {
+	padding-bottom: 32px;
+}
+
 /*p:last-child {*/
 /*	margin-bottom: 0;*/
 /*}*/

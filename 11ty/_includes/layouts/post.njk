@@ -14,7 +14,7 @@ layout: 'layouts/root.njk'
   {%- include 'node_modules/prismjs/themes/prism-okaidia.css' -%}
 {%- endcss -%}
 
-<section>
+<section class="post">
   <h1 id="post-title" class="glitch" data-text="{{ title | stripCodeTag }}">{{ title | safe }}</h1>
 
   <div class="post-metadata" style="display: flex; justify-content: space-between">
@@ -24,7 +24,7 @@ layout: 'layouts/root.njk'
     {% include "tags-list.njk" %}
   </div>
 
-  <hr>
+  <hr style="margin-bottom: 42px;">
 
 
   {{ content | safe }}
