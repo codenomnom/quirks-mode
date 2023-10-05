@@ -19,3 +19,14 @@ h5:hover a.header-anchor,
 h6:hover a.header-anchor {
   visibility: visible;
 }
+
+:root {
+  --full-width: 74vw;
+}
+
+.full-width {
+  position: relative;
+  width: clamp(100%, var(--full-width), var(--full-width));
+  left: min(0px, calc(var(--full-width) * -1 / 2) + 50%);
+  border: 1px solid red;
+}
