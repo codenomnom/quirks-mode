@@ -98,7 +98,7 @@ footer {
 	padding-bottom: 12px;
 
 	font-size: 12px;
-	color: #6b7280;
+	color: var(--text-color-time);
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
