@@ -1,6 +1,7 @@
+// TODO: update all of that
 module.exports = {
 	title: "Eleventy Base Blog v8",
-	url: "https://example.com/",
+	url: "https://quirks-mode.com/",
 	language: "en",
 	description: "I am writing about my experiences as a naval navel-gazer.",
 	author: {
