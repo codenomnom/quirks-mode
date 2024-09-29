@@ -1,0 +1,23 @@
+---
+import Navigation from "./Navigation.astro";
+---
+
+<footer>
+  <section>
+    @<a href="http://codenomnom.com" target="_blank">codenomnom</a>
+    {["🔫", "❤️", "👋"][(3 * Math.random()) | 0]}
+    <a href="/legal">cc by-sa 4.0</a>
+  </section>
+  <Navigation />
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+</style>

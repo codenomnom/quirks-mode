@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import MainLayout from "../layouts/main.layout.astro";
+import { stripCodeTag, toDate } from "../utils";
+import TagsList from "../components/TagsList.astro";
+
+type Props = {
+  post: CollectionEntry<"quirks">;
+};
+
+const { post } = Astro.props;
+const { title, tags } = post.data;
+const date = toDate(post.data.date);
+---
+
+<MainLayout title={title}>
+  <h1 set:html={title} />
+  <div class="post-metadata">
+    <time datetime={date}>{date}</time>
+    <TagsList tags={tags} />
+  </div>
+
+  <hr />
+
+  <slot />
+</MainLayout>
+
+<style>
+  .post-metadata {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  hr {
+    margin-top: 2px;
+    margin-bottom: 42px;
+    border-color: var(--color-gray-50);
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+import TagsList from "../components/TagsList.astro";
+import PostsList from "../components/PostsList.astro";
+import MainLayout from "../layouts/main.layout.astro";
+import { getAllPosts, getAllTags } from "../content/config";
+
+const tags = await getAllTags();
+const posts = await getAllPosts();
+---
+
+<MainLayout title="quirks-mode">
+  <h1>quirks-mode</h1>
+
+  <p style="margin-top: 42px;">
+    Greetings, fellow <i>coding connoisseurs!</i><!-- aficionados -->
+  </p>
+  <p style="margin-top: 24px;">
+    Here's a manifest to all the quirks and whimsy peculiarities of software
+    development. A place to share the intricates and battles I (we) face each
+    day. The pain, the frustration, the joy of finding a solution. A nerdy
+    wonderland, for you to feel at home.
+  </p>
+
+  <p style="margin-top: 32px;">
+    Software development <i><b>peculiarities</b></i>.
+  </p>
+
+  <h2>latest</h2>
+  <TagsList class="tags-list" tags={tags} limit={3} />
+  <PostsList class="posts-list" posts={posts} limit={5} />
+
+  <h2>submit</h2>
+  <p>
+    Stumbled upon something kinky while writing software? <a href="/submit/"
+      >[send it]</a
+    >
+  </p>
+</MainLayout>
+
+<style>
+  .tags-list {
+    font-size: 12px;
+  }
+  .posts-list {
+    margin-top: 1.5rem;
+  }
+  /* main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	} */
+</style>

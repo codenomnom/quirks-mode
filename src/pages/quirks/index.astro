@@ -1,0 +1,24 @@
+---
+import TagsList from "../../components/TagsList.astro";
+import PostsList from "../../components/PostsList.astro";
+import MainLayout from "../../layouts/main.layout.astro";
+import { getAllPosts, getAllTags } from "../../content/config";
+
+const tags = await getAllTags();
+const posts = await getAllPosts();
+---
+
+<MainLayout title="all tags">
+  <h1>all posts</h1>
+  <TagsList class="tags-list" tags={tags} limit={3} />
+  <PostsList class="posts-list" posts={posts} />
+</MainLayout>
+
+<style>
+  .tags-list {
+    font-size: 12px;
+  }
+  .posts-list {
+    margin-top: 1.5rem;
+  }
+</style>
