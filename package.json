@@ -1,7 +1,12 @@
 {
-  "name": "",
+  "name": "quirks-mode",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codenomnom/quirks-mode.git"
+  },
+  "author": "codenomnom",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,8 +15,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0-beta.2",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/tailwind": "^5.1.1",
+    "@fontsource/arvo": "^5.1.0",
+    "astro": "^5.0.0-beta.2",
+    "sass": "^1.79.3",
+    "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4"
   }
 }

@@ -1,0 +1,32 @@
+---
+import PostsList from "../../components/PostsList.astro";
+import MainLayout from "../../layouts/main.layout.astro";
+import { getAllTags, getPostsGroupedByTags } from "../../content/config";
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return tags.map((tag) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const allPosts = await getPostsGroupedByTags();
+const posts = allPosts[tag] || [];
+---
+
+<MainLayout title=`quirks for: ${tag}`>
+  <h1>tagged: <code>{tag}</code></h1>
+  <PostsList posts={posts} />
+
+  <div class="all-links">
+    <a href="/tags">all tags</a>, <a href="/quirks">all posts</a>
+  </div>
+</MainLayout>
+
+<style>
+  .all-links {
+    margin-top: 2rem;
+  }
+</style>

@@ -1,6 +1,0 @@
-<div class="tags-list">
-  tags: {% for tag in tagsList | filterTagsList %}<a href="/tags/{{ tag | slugify | url }}">{{ tag }}</a>
-  {%- if not loop.last -%},&nbsp;{%- endif -%}
-  {% endfor %}
-  {%- if showMoreTags -%}, <a href="/tags/">+more</a>{%- endif -%}
-</div>

@@ -1,0 +1,19 @@
+---
+import MainLayout from "../../layouts/main.layout.astro";
+import { getPostsGroupedByTags } from "../../content/config";
+
+const tags = await getPostsGroupedByTags();
+---
+
+<MainLayout title="all tags">
+  <h1>all tags</h1>
+  <ul>
+    {
+      Object.entries(tags).map(([tag, posts]) => (
+        <li>
+          &mdash; <a href={`/tags/${tag}`}>{tag}</a> ({posts.length} posts)
+        </li>
+      ))
+    }
+  </ul>
+</MainLayout>

@@ -1,0 +1,46 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+const isActive = (path: string) => currentPath === path ? 'active' : '';
+---
+
+<nav>
+  <ul>
+    <li>
+      <span class={isActive('')}>.</span><a href="/">home</a>
+    </li>
+
+    <li>
+      <span class={isActive('about')}>.</span><a
+        href="/about">about</a
+      >
+    </li>
+
+    <li>
+      <span class={isActive('quirks')}>.</span><a
+        href="/quirks">quirks</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    ul {
+      display: flex;
+      margin-left: -0.5rem;
+      li {
+        margin-right: 0.5rem;
+
+        span {
+          opacity: 0;
+          pointer-events: none;
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+</style>

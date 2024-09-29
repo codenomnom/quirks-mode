@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { stripCodeTag, toDate } from "../utils";
+
+type Props = {
+  posts: Array<CollectionEntry<"quirks">>;
+  limit?: number;
+  class?: string;
+};
+
+let { posts, limit = 0, class: className, ...rest } = Astro.props;
+let list = posts;
+let showMore = 0;
+
+if (limit && list.length > limit) {
+  list = list.slice(0, limit);
+  showMore = posts.length - limit;
+}
+---
+
+<ul class:list={["posts-list", className]} {...rest}>
+  {
+    list.map((post) => {
+      const date = toDate(post.data.date, "short");
+      return (
+        <li class="posts-list-item{% if post.url == url %} posts-list-item-active{% endif %}">
+          <time class="posts-list-date" datetime={date}>
+            {post.data.draft ? `__ ${date}` : date}
+          </time>
+          <a href={`/quirks/${post.slug}`} class="posts-list-link">
+            {stripCodeTag(post.data.title)}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+{
+  !!showMore && (
+    <p class="more-posts">
+      + <a href="/quirks/">{showMore} more</a>
+    </p>
+  )
+}
+
+<style>
+  .more-posts {
+    margin-top: 1rem;
+  }
+</style>
