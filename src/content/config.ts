@@ -17,11 +17,16 @@ export async function getAllPosts() {
   const posts = await getCollection("quirks", ({ data }) => {
     if (import.meta.env.PROD) { // production, so hide drafts and scheduled posts
       if (data.draft === true) {
+        console.log(' > skipping draft article, as env is production (title: %s)', data.title);
         return false;
       }
 
       if (data.date) {
-        return (data.date >= new Date());
+        const isInThePast = data.date <= new Date();
+        if (!isInThePast) {
+          console.log(' > skipping scheduled article, as date is in the future (title: %s, date: %s)', data.title, data.date.toDateString());
+        }
+        return isInThePast;
       }
     }
 
