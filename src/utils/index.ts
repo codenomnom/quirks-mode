@@ -9,3 +9,13 @@ export function toDate(date?: Date, month: 'long' | 'short' = 'long') {
     year: "numeric",
   }) || '';
 }
+
+export function stripPath(path: string) {
+  if (path.startsWith('/')) {
+    path = path.substring(1);
+  }
+  if (path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+  return path;
+}
