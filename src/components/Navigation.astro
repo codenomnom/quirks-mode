@@ -2,12 +2,17 @@
 import { Icon } from "astro-icon/components";
 import { stripPath } from "../utils";
 
+type Props = {
+  location: "header" | "footer";
+};
+
 const pathname = new URL(Astro.request.url).pathname;
 const isActive = (path: string) =>
   stripPath(pathname) === path ? "active" : "";
+const { location } = Astro.props;
 ---
 
-<nav>
+<nav class={`in-${location}`}>
   <ul>
     <li>
       <span class={isActive("")}>.</span><a href="/">home</a>
@@ -23,8 +28,8 @@ const isActive = (path: string) =>
   </ul>
 
   <div class="icons">
-    <Icon name="sun" class="sun" />
-    <Icon name="moon" class="moon" />
+    <Icon name="sun" class="sun" title="turn lights on" />
+    <Icon name="moon" class="moon" title="turn lights off" />
   </div>
 </nav>
 
@@ -56,10 +61,19 @@ const isActive = (path: string) =>
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: var(--color-href);
+
+    transition: color .2s ease;
+
     &:hover {
-      color: var(--color-href);
+      color: var(--color-href-hover);
     }
   }
+
+  nav.in-header .icons {
+    align-items: end;
+  }
+
   html.theme-dark {
     .moon {
       display: none;

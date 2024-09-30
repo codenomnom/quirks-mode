@@ -85,7 +85,7 @@ const title = stripCodeTag(Astro.props.title);
   </head>
   <body class={`${pathname === "/" ? "home" : "inner-page"}`}>
     <header>
-      <Navigation />
+      <Navigation location="header" />
     </header>
 
     <section class="container">
