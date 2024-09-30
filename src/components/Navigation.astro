@@ -1,32 +1,40 @@
 ---
+import { Icon } from "astro-icon/components";
 import { stripPath } from "../utils";
 
 const pathname = new URL(Astro.request.url).pathname;
-const isActive = (path: string) => stripPath(pathname) === path ? 'active' : '';
+const isActive = (path: string) =>
+  stripPath(pathname) === path ? "active" : "";
 ---
 
 <nav>
   <ul>
     <li>
-      <span class={isActive('')}>.</span><a href="/">home</a>
+      <span class={isActive("")}>.</span><a href="/">home</a>
     </li>
 
     <li>
-      <span class={isActive('about')}>.</span><a
-        href="/about">about</a
-      >
+      <span class={isActive("about")}>.</span><a href="/about">about</a>
     </li>
 
     <li>
-      <span class={isActive('quirks')}>.</span><a
-        href="/quirks">quirks</a
-      >
+      <span class={isActive("quirks")}>.</span><a href="/quirks">quirks</a>
     </li>
   </ul>
+
+  <div class="icons">
+    <Icon name="sun" class="sun" />
+    <Icon name="moon" class="moon" />
+  </div>
 </nav>
 
 <style>
   nav {
+    display: flex;
+    justify-content: space-between;
+
+    /* border: 1px solid red; */
+
     ul {
       display: flex;
       margin-left: -0.5rem;
@@ -42,6 +50,24 @@ const isActive = (path: string) => stripPath(pathname) === path ? 'active' : '';
           }
         }
       }
+    }
+  }
+  .icons {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      color: var(--color-href);
+    }
+  }
+  html.theme-dark {
+    .moon {
+      display: none;
+    }
+  }
+  html.theme-light {
+    .sun {
+      display: none;
     }
   }
 </style>
