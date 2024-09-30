@@ -15,8 +15,6 @@ interface Props {
 const pathname = new URL(Astro.request.url).pathname;
 
 const title = stripCodeTag(Astro.props.title);
-const { description } =
-  Astro.props || "I am writing about my experiences as a naval navel-gazer.";
 ---
 
 <!doctype html>
@@ -26,18 +24,27 @@ const { description } =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta
+      name="description"
+      content={Astro.props.description ||
+        "I am writing about my experiences as a naval navel-gazer."}
+    />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
     <!-- <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}"> -->
     <!-- <link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}"> -->
-    <link rel="sitemap" href="/sitemap-index.xml" type="application/xml" title="sitemap" />
+    <link
+      rel="sitemap"
+      href="/sitemap-index.xml"
+      type="application/xml"
+      title="sitemap"
+    />
 
     <link
       rel="preload"
@@ -50,6 +57,31 @@ const { description } =
     </noscript>
 
     <meta name="generator" content={Astro.generator} />
+
+    <script is:inline>
+      let theme = localStorage.getItem("theme");
+      if (!theme) {
+        if (window.matchMedia) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          } else {
+            theme = "light";
+          }
+        } else {
+          theme = "light"; // default
+        }
+      }
+
+      window.setTheme = (theme, userAction = false) => {
+        document.querySelector("html").className = `theme-${theme}`;
+        window.currentTheme = theme;
+        if (userAction) {
+          localStorage.setItem("theme", theme);
+        }
+      };
+
+      window.setTheme(theme);
+    </script>
   </head>
   <body class={`${pathname === "/" ? "home" : "inner-page"}`}>
     <header>
@@ -63,5 +95,25 @@ const { description } =
     </section>
 
     <Footer />
+
+    <script is:inline>
+      const suns = document.getElementsByClassName("sun");
+      const moons = document.getElementsByClassName("moon");
+
+      for (let sun of suns) {
+        sun.addEventListener("click", function (e) {
+          console.log("clicked on sun");
+          e.preventDefault();
+          window.setTheme("light", true);
+        });
+      }
+
+      for (let moon of moons) {
+        moon.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.setTheme("dark", true);
+        });
+      }
+    </script>
   </body>
 </html>
