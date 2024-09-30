@@ -19,5 +19,10 @@ import Navigation from "./Navigation.astro";
     font-size: 12px;
     padding-top: 12px;
     padding-bottom: 12px;
+
+    @media (max-width: 486px) {
+      flex-direction: column;
+      flex-flow: column-reverse;
+    }
   }
 </style>
