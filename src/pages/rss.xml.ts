@@ -1,7 +1,9 @@
-import type { APIContext } from 'astro';
 import rss from '@astrojs/rss';
 import MarkdownIt from 'markdown-it';
+import type { APIContext } from 'astro';
 import sanitizeHtml from 'sanitize-html';
+
+import { stripCodeTag } from '../utils';
 import { getAllPosts } from '../content/config';
 
 const parser = new MarkdownIt();
@@ -18,7 +20,7 @@ export async function GET(context: APIContext) {
     stylesheet: '/rss/pretty-feed-v3.xsl',
     items: posts.map((post) => (
       {
-        title: post.data.title,
+        title: stripCodeTag(post.data.title),
         pubDate: post.data.date,
         description: post.data.description,
         link: `/quirks/${post.slug}`, // IMPORTANT: make sure to update if changing the url
