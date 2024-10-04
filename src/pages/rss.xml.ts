@@ -2,12 +2,12 @@ import type { APIContext } from 'astro';
 import rss from '@astrojs/rss';
 import MarkdownIt from 'markdown-it';
 import sanitizeHtml from 'sanitize-html';
-import { getCollection } from 'astro:content';
+import { getAllPosts } from '../content/config';
 
 const parser = new MarkdownIt();
 
 export async function GET(context: APIContext) {
-  const posts = await getCollection('quirks');
+  const posts = await getAllPosts();
 
   return rss({
     title: 'quirks-mode',
@@ -16,15 +16,17 @@ export async function GET(context: APIContext) {
     // https://docs.astro.build/en/reference/api-reference/#contextsite
     site: context.site!,
     stylesheet: '/rss/pretty-feed-v3.xsl',
-    items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
-      link: `/quirks/${post.slug}`, // IMPORTANT: make sure to update if changing the url
-      content: sanitizeHtml(parser.render(post.body), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-      }),
-    })),
+    items: posts.map((post) => (
+      {
+        title: post.data.title,
+        pubDate: post.data.date,
+        description: post.data.description,
+        link: `/quirks/${post.slug}`, // IMPORTANT: make sure to update if changing the url
+        content: sanitizeHtml(parser.render(post.body), {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
+        }),
+      }
+    )),
     customData: `<language>en-us</language>`,
   });
 }
