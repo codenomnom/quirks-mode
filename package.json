@@ -22,7 +22,7 @@
     "@fontsource/arvo": "^5.1.0",
     "astro": "^5.0.0-beta.3",
     "astro-icon": "^1.1.1",
-    "sass": "^1.79.3",
+    "sass": "^1.79.4",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
   },
