@@ -47,6 +47,13 @@ const title = stripCodeTag(Astro.props.title);
     />
 
     <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="quirks-mode"
+      href={new URL("rss.xml", Astro.site)}
+    />
+
+    <link
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
