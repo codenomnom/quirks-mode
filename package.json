@@ -27,7 +27,7 @@
     "sanitize-html": "^2.13.1",
     "sass": "^1.79.4",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
