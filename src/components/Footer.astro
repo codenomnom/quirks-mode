@@ -1,5 +1,6 @@
 ---
 import Navigation from "./Navigation.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer>
@@ -7,6 +8,10 @@ import Navigation from "./Navigation.astro";
     @<a href="http://codenomnom.com" target="_blank">codenomnom</a>
     {["🔫", "❤️", "👋"][(3 * Math.random()) | 0]}
     <a href="/legal">cc by-sa 4.0</a>
+
+    <a href="https://github.com/codenomnom/quirks-mode/" target="_blank">
+      <Icon name="github" class="github" title="github" />
+    </a>
   </section>
   <Navigation location="footer" />
 </footer>
@@ -19,6 +24,21 @@ import Navigation from "./Navigation.astro";
     font-size: 12px;
     padding-top: 12px;
     padding-bottom: 12px;
+
+    section {
+      display: flex;
+      align-items: center;
+
+      a {
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
+
+        &:not(:first-of-type) {
+          margin-left: 4px;
+        }
+      }
+    }
 
     @media (max-width: 486px) {
       flex-direction: column;
