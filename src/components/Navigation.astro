@@ -28,6 +28,7 @@ const { location } = Astro.props;
   </ul>
 
   <div class="icons">
+    <!-- <Icon name="github" class="github" title="github" /> -->
     <Icon name="sun" class="sun" title="turn lights on" />
     <Icon name="moon" class="moon" title="turn lights off" />
   </div>
@@ -65,7 +66,11 @@ const { location } = Astro.props;
 
     transition: color .2s ease;
 
-    &:hover {
+    .github {
+      margin-right: 4px;
+    }
+
+    svg:hover {
       color: var(--color-href-hover);
     }
   }
