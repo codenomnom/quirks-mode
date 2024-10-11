@@ -8,7 +8,7 @@ const tags = await getAllTags();
 const posts = await getAllPosts();
 ---
 
-<MainLayout title="all tags">
+<MainLayout title="all posts">
   <h1>all posts</h1>
   <TagsList class="tags-list" tags={tags} limit={3} />
   <PostsList class="posts-list" posts={posts} />
