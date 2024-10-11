@@ -10,12 +10,17 @@ import Navigation from "../components/Navigation.astro";
 interface Props {
   title: string;
   description?: string;
+  frontmatter?: {
+    title: string;
+  }
 }
 
+// ·
 const pathname = new URL(Astro.request.url).pathname;
+const isHome = pathname === "/";
 
-const title = stripCodeTag(Astro.props.title);
-const description = Astro.props.description || 'I am writing about my experiences as a naval navel-gazer.';
+const title = `${stripCodeTag(Astro.props.frontmatter?.title || Astro.props.title)}${isHome ? '' : ' · quirks-mode'}`;
+const description = Astro.props.description || 'Untangling web peculiarities. One noodle at a time.';
 ---
 
 <!doctype html>
@@ -25,7 +30,7 @@ const description = Astro.props.description || 'I am writing about my experience
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <meta name={description} content={description}/>
+    <meta name="description" content={description}/>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -101,7 +106,7 @@ const description = Astro.props.description || 'I am writing about my experience
       window.setTheme(theme);
     </script>
   </head>
-  <body class={`${pathname === "/" ? "home" : "inner-page"}`}>
+  <body class={`${isHome ? "home" : "inner-page"}`}>
     <header>
       <Navigation location="header" />
     </header>
