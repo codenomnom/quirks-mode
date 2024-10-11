@@ -16,7 +16,7 @@ const allPosts = await getPostsGroupedByTags();
 const posts = allPosts[tag] || [];
 ---
 
-<MainLayout title=`quirks for: ${tag}`>
+<MainLayout title=`tagged: ${tag}`>
   <h1>tagged: <code>{tag}</code></h1>
   <PostsList posts={posts} />
 

@@ -5,13 +5,32 @@ layout: '../layouts/main.layout.astro'
 
 # about
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+I often find myself stumped with the _"what do you do"_ question.
+I'm wondering if people imagine it as a groundbreaking, Matrix-like work.
+Changing the world, sending people to Mars.
 
-## name
+Most of the time? A good few hours knee-deep in a UTC fight with a JS Date.
+Just so I compare two of those. Or why an image is mysteriously shifted by a few stubborn pixels.
+It's always `!important`
 
-If you don't know what the name means, then you're lucky!
+But there's a weird beauty in it. This chaos demands creativity - nothing's ever as simple as it seems.
+It's challenging, unpredictable, and oddly fun. I choose to cherrish it.
 
-A long, long time ago, there weren't many browsers to browse the web, and they didn't agree on how to show a page on the screen.
+## handshake
 
-[Quirks Mode](https://en.wikipedia.org/wiki/Quirks_mode) was a special mode used to denote how the browser should process the web page. Not fun enough? Here are some of the things that we used to "configure" the browser: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">`
+Sounds fun, having a _coding tantrum_ or you're simply proud of that shaky workaround?
+Attaboy!  <a href="https://mailhide.io/e/1FJhhQmU" onclick="popup=window.open('https://mailhide.io/e/1FJhhQmU','mailhidepopup','width=580,height=635'); return false;">Drop me a line</a>.
+
+## the name
+
+Not sure what `quirks-mode` means? You lucky lad, I almost hate you!
+
+Back in the days, HTML standards were more of a _guidelines_ and each browser had its own interpretation on how the web worked.
+Chaos reigned. Developers cried.
+
+Enter `quirks-mode`! It's like the web's version of a secret handshake for outdated code.
+It allowed browsers to render older pages with all their glorious, quirky inconsistencies from the pre-standards era,
+making sure those sites didn't crumble while the rest of the web moved on.
+
+It's like keeping a dusty old cassette player around to play those classic mixtapes.
+Sure, the sound quality isn't great, but at least the tunes still play!
