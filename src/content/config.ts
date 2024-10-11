@@ -6,7 +6,7 @@ const quirks = defineCollection({
   // loader: glob({ pattern: '**\/[^_]*.md', base: './src/quirks' }),
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date().optional(),
+    date: z.coerce.date(),
     description: z.string().optional(),
     draft: z.boolean().optional(),
     tags: z.array(z.string()).optional()
@@ -43,21 +43,25 @@ export async function getAllPosts() {
 export async function getPostsGroupedByTags() {
   const posts = await getAllPosts();
   return posts.reduce(
-    (allTags: Record<string, Array<CollectionEntry<"quirks">>>, post) => {
+    (allTags: Map<string, Array<CollectionEntry<"quirks">>>, post) => {
       const postTags = post.data.tags || [];
       postTags.forEach((tag) => {
-        if (!allTags[tag]) {
-          allTags[tag] = [];
+        if (!allTags.has(tag)) {
+          allTags.set(tag, []);
         }
-        allTags[tag].push(post);
+        allTags.get(tag)!.push(post);
       });
       return allTags;
     },
-    {},
+    new Map([
+      ['html', []],
+      ['css', []],
+      ['js', []],
+    ]),
   );
 }
 
 export async function getAllTags() {
   const posts = await getPostsGroupedByTags();
-  return Object.keys(posts);
+  return Array.from(posts.keys());
 }

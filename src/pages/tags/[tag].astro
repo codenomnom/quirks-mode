@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 const allPosts = await getPostsGroupedByTags();
-const posts = allPosts[tag] || [];
+const posts = allPosts.get(tag) || [];
 ---
 
 <MainLayout title=`tagged: ${tag}`>
