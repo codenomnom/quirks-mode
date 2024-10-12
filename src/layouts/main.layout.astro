@@ -12,15 +12,17 @@ interface Props {
   description?: string;
   frontmatter?: {
     title: string;
-  }
+  };
 }
 
 // ·
 const pathname = new URL(Astro.request.url).pathname;
 const isHome = pathname === "/";
 
-const title = `${stripCodeTag(Astro.props.frontmatter?.title || Astro.props.title)}${isHome ? '' : ' · quirks-mode'}`;
-const description = Astro.props.description || 'Untangling web peculiarities. One noodle at a time.';
+const title = `${stripCodeTag(Astro.props.frontmatter?.title || Astro.props.title)}${isHome ? "" : " · quirks-mode"}`;
+const description =
+  Astro.props.description ||
+  "Untangling web peculiarities. One noodle at a time.";
 ---
 
 <!doctype html>
@@ -30,7 +32,7 @@ const description = Astro.props.description || 'Untangling web peculiarities. On
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <meta name="description" content={description}/>
+    <meta name="description" content={description} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -38,18 +40,18 @@ const description = Astro.props.description || 'Untangling web peculiarities. On
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:image" content="/qm-og.jpg">
-    <meta property="og:url" content="https://quirks-mode.com">
-    <meta property="og:site_name" content={title}>
-    <meta property="og:type" content="website">
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/qm-og.jpg" />
+    <meta property="og:url" content="https://quirks-mode.com" />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:type" content="website" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content={title}>
-    <meta name="twitter:description" content={description}>
-    <meta name="twitter:image" content="/qm-og-x.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/qm-og-x.jpg" />
 
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
@@ -107,17 +109,15 @@ const description = Astro.props.description || 'Untangling web peculiarities. On
     </script>
   </head>
   <body class={`${isHome ? "home" : "inner-page"}`}>
-    <header>
-      <Navigation location="header" />
-    </header>
+      <header>
+        <Navigation location="header" />
+      </header>
 
-    <section class="container">
       <main>
         <slot />
       </main>
-    </section>
 
-    <Footer />
+      <Footer />
 
     <script is:inline>
       const suns = document.getElementsByClassName("sun");

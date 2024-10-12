@@ -12,6 +12,10 @@
   --color-text: #333;
   --background-color: #f5f5f5;
 
+  --scrollbar-width: 16px;
+  --body-padding-left: 2rem;
+  --body-padding-right: 2rem;
+
   /* font-mono in tailwind */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -31,10 +35,10 @@ html.theme-dark {
 
 html,
 body {
-  margin: 0 auto;
-  padding: 0;
-  scroll-behavior: smooth;
+  margin: 0;
   min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 
   color: var(--color-text);
   font-family: var(--font-mono);
@@ -44,24 +48,18 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-
-  max-width: 640px;
-  min-height: 100vh;
-  padding: 3rem 2rem 0 2rem;
+  padding: 3rem var(--body-padding-left) 0 var(--body-padding-right);
   font-size: 15px;
   line-height: 21px;
 
   ::selection {
     background-color: var(--color-selection-bgr);
   }
-
-  /* border: 1px solid red; */
 }
 
-.container {
-  flex-grow: 1;
+main, header, footer, pre {
+  margin: 0 auto; /* center */
+  max-width: calc(640px - var(--body-padding-left) - var(--body-padding-right));
 }
 
 main {
@@ -127,6 +125,15 @@ code:not(pre *) {
 
 pre {
   padding: 1rem 1rem;
+  font-size: 14px;
+
+  position: relative;
+  width: max-content;
+  min-width: 100%; /* parent is main */
+  max-width: calc(100vw - var(--scrollbar-width));
+
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 time {
