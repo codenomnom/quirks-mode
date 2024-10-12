@@ -1,8 +1,7 @@
 ---
 title: Image <code>bottom</code> margin
-# slug: image-bottom-margin
 date: 2023-09-18
-tags: [html, js]
+tags: [html]
 ---
 
 Okay, this one got me good. It's one of the things I'm constantly amazed by, primarily because I often use libraries and CSS normalize/reset.
