@@ -15,6 +15,7 @@
   --scrollbar-width: 16px;
   --body-padding-left: 2rem;
   --body-padding-right: 2rem;
+  --container-width: calc(640px - var(--body-padding-left) - var(--body-padding-right));
 
   /* font-mono in tailwind */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -57,13 +58,23 @@ body {
   }
 }
 
-main, header, footer, pre {
-  margin: 0 auto; /* center */
-  max-width: calc(640px - var(--body-padding-left) - var(--body-padding-right));
+main, body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+header, footer, main > :not(pre) {
+  width: 100%;
+  max-width: var(--container-width);
 }
 
 main {
-  padding: 3rem 0 5rem 0;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  flex-grow: 1;
+  width: 100%; /* important so it can take body's padding into consideration */
 }
 
 h1,
@@ -129,11 +140,9 @@ pre {
 
   position: relative;
   width: max-content;
-  min-width: 100%; /* parent is main */
+  overflow-x: scroll;
+  min-width: min(100%, var(--container-width));
   max-width: calc(100vw - var(--scrollbar-width));
-
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 time {
