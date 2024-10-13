@@ -9,7 +9,7 @@ const tags = await getPostsGroupedByTags();
   <h1>all tags</h1>
   <ul>
     {
-      (tags.entries() || []).map(([tag, posts]) => (
+      Array.from(tags).map(([tag, posts]) => (
         <li>
           &mdash; <a href={`/tags/${tag}`}>{tag}</a> ({posts.length} posts)
         </li>
