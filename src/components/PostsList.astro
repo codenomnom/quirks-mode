@@ -23,7 +23,7 @@ if (limit && list.length > limit) {
     list.map((post) => {
       const date = toDate(post.data.date, "short");
       return (
-        <li class="posts-list-item{% if post.url == url %} posts-list-item-active{% endif %}">
+        <li class="posts-list-item">
           <time class="posts-list-date" datetime={date}>
             {post.data.draft ? `__ ${date}` : date}
           </time>

@@ -16,8 +16,10 @@ interface Props {
 }
 
 // ·
-const pathname = new URL(Astro.request.url).pathname;
-const isHome = pathname === "/";
+const path = new URL(Astro.request.url).pathname.split("/");
+const isHome = path[1] === "";
+const isArticle = path[1] === "quirks" && path.length > 2;
+const pageType = isHome ? "home" : `inner-page ${isArticle ? "article" : ""}`;
 
 const title = `${stripCodeTag(Astro.props.frontmatter?.title || Astro.props.title)}${isHome ? "" : " · quirks-mode"}`;
 const description =
@@ -108,16 +110,16 @@ const description =
       window.setTheme(theme);
     </script>
   </head>
-  <body class={`${isHome ? "home" : "inner-page"}`}>
-      <header>
-        <Navigation location="header" />
-      </header>
+  <body class={pageType}>
+    <header>
+      <Navigation location="header" />
+    </header>
 
-      <main>
-        <slot />
-      </main>
+    <main>
+      <slot />
+    </main>
 
-      <Footer />
+    <Footer />
 
     <script is:inline>
       const suns = document.getElementsByClassName("sun");
