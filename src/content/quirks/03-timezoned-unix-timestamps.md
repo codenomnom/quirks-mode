@@ -1,8 +1,10 @@
 ---
 title: Timezoned unix timestamps
 date: 2024-10-11
-tags: [js, date]
+tags: [js]
 ---
+
+A JavaScript's [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) love/hate letter.
 
 ```ts
 // TL;DR
@@ -10,8 +12,6 @@ const time = Math.floor(now.getTime() / 1000) + now.getTimezoneOffset() * 60;
 ```
 
 ---
-
-A JavaScript's [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) love/hate letter.
 
 **Use case**: I received a date from an external source (backend) in a UNIX timestamp format
 (number of seconds since January 1st, 1970, shortly named `UTC`).
@@ -26,8 +26,6 @@ const date: number = payload.date; // server's date
 console.log(date); // 172863765
 console.log(Date.now()); // 1728648454925
 ```
-
----
 
 Long story short - regardless of what you do with your current date, you will still get UTC time **including**
 your timezone difference. Making both timestamps work withouth a timezone (GMT) required some manipulation:

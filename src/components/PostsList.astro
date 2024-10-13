@@ -27,9 +27,7 @@ if (limit && list.length > limit) {
           <time class="posts-list-date" datetime={date}>
             {post.data.draft ? `__ ${date}` : date}
           </time>
-          <a href={`/quirks/${post.slug}`} class="posts-list-link">
-            {stripCodeTag(post.data.title)}
-          </a>
+          <a href={`/quirks/${post.slug}`} class="posts-list-link" set:html={post.data.title} />
         </li>
       );
     })
