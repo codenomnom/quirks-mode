@@ -21,7 +21,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource/arvo": "^5.1.0",
-    "astro": "^5.0.0-beta.8",
+    "astro": "^5.0.0-beta.9",
     "astro-icon": "^1.1.2",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.13.1",
