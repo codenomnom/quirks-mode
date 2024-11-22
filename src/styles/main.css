@@ -129,7 +129,7 @@ a {
 
 /* select code that is not part of pre (this is shiki highlight) */
 code:not(pre *) {
-  word-break: break-all;
+  /*word-break: break-all;*/
   font-family: inherit;
   font-size: inherit;
   padding: 3px 5px;
