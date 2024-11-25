@@ -73,15 +73,15 @@ const description =
       href={new URL("rss.xml", Astro.site)}
     />
 
-    <link
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-      href="/styles/deferred/glitch.css"
-    />
-    <noscript>
-      <link rel="stylesheet" href="/styles/deferred/glitch.css" />
-    </noscript>
+    <!--<link-->
+    <!--  rel="preload"-->
+    <!--  as="style"-->
+    <!--  onload="this.onload=null;this.rel='stylesheet'"-->
+    <!--  href="/styles/deferred/glitch.css"-->
+    <!--/>-->
+    <!--<noscript>-->
+    <!--  <link rel="stylesheet" href="/styles/deferred/glitch.css" />-->
+    <!--</noscript>-->
 
     <meta name="generator" content={Astro.generator} />
 
@@ -108,6 +108,33 @@ const description =
       };
 
       window.setTheme(theme);
+    </script>
+
+    <script is:inline>
+      const steps = 50;
+      const weights = [100, 200, 300, 400, 500, 600, 700];
+      const styles = ['normal', 'italic', 'normal', 'normal'];
+      const decorations = ['none', 'none', 'line-through', 'underline', 'none', 'none', 'none', 'none', 'none', 'none'];
+      const transformations = ['none', 'none', 'uppercase', 'lowercase', 'capitalize', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'];
+      const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+      const loop = new Array(steps).fill(0);
+
+      const step = (index) => `
+        ${100 / steps * index}% {
+          font-weight: ${rand(weights)};
+          font-style: ${rand(styles)};
+          text-decoration: ${rand(decorations)};
+          text-transform: ${rand(transformations)};
+        }`;
+
+
+      let anim = '@keyframes glitch {';
+      loop.forEach((_, i) => anim += step(i + 1));
+      anim += '}';
+      const style = document.createElement('style');
+      style.textContent = anim;
+      document.head.appendChild(style)
     </script>
   </head>
   <body class={pageType}>
