@@ -13,6 +13,7 @@
   --background-color: #f5f5f5;
 
   --scrollbar-width: 16px;
+  --body-padding-top: 3rem;
   --body-padding-left: 2rem;
   --body-padding-right: 2rem;
   --container-width: calc(640px - var(--body-padding-left) - var(--body-padding-right));
@@ -20,6 +21,14 @@
   /* font-mono in tailwind */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+}
+
+@media (max-width: 486px) {
+  :root {
+    --body-padding-top: 2rem;
+    --body-padding-left: 1.5rem;
+    --body-padding-right: 1.5rem;
+  }
 }
 
 html.theme-dark {
@@ -49,7 +58,7 @@ body {
 }
 
 body {
-  padding: 3rem var(--body-padding-left) 0 var(--body-padding-right);
+  padding: var(--body-padding-top) var(--body-padding-left) 0 var(--body-padding-right);
   font-size: 15px;
   line-height: 21px;
 
@@ -151,6 +160,11 @@ pre {
 time {
   display: inline-block;
   font-size: 14px;
-  min-width: 124px;
+  min-width: 12ch;
+
+  @media (min-width: 486px) {
+    min-width: 16ch;
+  }
+
   word-spacing: -1px;
 }
