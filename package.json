@@ -20,7 +20,7 @@
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
-    "@fontsource/arvo": "^5.1.0",
+    "@fontsource/arvo": "^5.1.1",
     "astro": "^5.1.1",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.0",
