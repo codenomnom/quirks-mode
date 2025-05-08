@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^22.15.14",
+    "@types/node": "^22.15.17",
     "@types/sanitize-html": "^2.16.0"
   }
 }
