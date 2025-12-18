@@ -78,5 +78,5 @@ CSS has counters, and I have regrets about my career choices. No one sane enough
 
 ---
 
-[^1]: Not getting this? Congrats on being born after '95. The rest of us are tired old f*rts... [Hackers, the movie](https://www.youtube.com/watch?v=Bmz67ErIRa4)
-[^2]: I made that up, but I'd hate another issue like [CVE-2025-55182](https://react2shell.com/)
+[^1]: Not getting this? [Hackers, the movie](https://www.youtube.com/watch?v=Bmz67ErIRa4), never seen by anyone born after '95. The rest of us are tired old f*rts...
+[^2]: Sorry, I made that up, but issues like [CVE-2025-55182](https://react2shell.com/) show us how something fairly innocent can wreck havoc.

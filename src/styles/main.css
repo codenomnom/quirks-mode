@@ -136,6 +136,18 @@ a {
   }
 }
 
+main a[target="_blank"]::after {
+  content: "\2197"; /* CSS hex code for ↗ */
+  margin-left: 3px;
+  font-size: 0.8em;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: super;
+}
+a[target="_blank"]:hover::after {
+  /* transform: translate(2px, -2px); */
+}
+
 /* select code that is not part of pre (this is shiki highlight) */
 code:not(pre *) {
   /*word-break: break-all;*/
