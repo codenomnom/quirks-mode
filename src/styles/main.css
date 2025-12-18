@@ -13,7 +13,7 @@
   --background-color: #f5f5f5;
 
   --scrollbar-width: 16px;
-  --body-padding-top: 3rem;
+  --body-padding-top: 2.5rem;
   --body-padding-left: 2rem;
   --body-padding-right: 2rem;
   --container-width: calc(640px - var(--body-padding-left) - var(--body-padding-right));
@@ -163,7 +163,7 @@ time {
   min-width: 12ch;
 
   @media (min-width: 486px) {
-    min-width: 16ch;
+    min-width: 15ch;
   }
 
   word-spacing: -1px;
