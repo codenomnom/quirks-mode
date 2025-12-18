@@ -20,11 +20,13 @@ const path = new URL(Astro.request.url).pathname.split("/");
 const isHome = path[1] === "";
 const isArticle = path[1] === "quirks" && path.length > 2;
 const pageType = isHome ? "home" : `inner-page ${isArticle ? "article" : ""}`;
+const baseDescription = "Untangling web peculiarities, one noodle at a time.";
+const strippedTitle = stripCodeTag(
+  Astro.props.frontmatter?.title || Astro.props.title,
+);
 
-const title = `${stripCodeTag(Astro.props.frontmatter?.title || Astro.props.title)}${isHome ? "" : " · quirks-mode"}`;
-const description =
-  Astro.props.description ||
-  "Untangling web peculiarities. One noodle at a time.";
+const title = `${strippedTitle} · ${isHome ? baseDescription : "quirks-mode"}`;
+const description = Astro.props.description || baseDescription;
 ---
 
 <!doctype html>
