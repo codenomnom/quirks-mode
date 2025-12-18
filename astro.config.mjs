@@ -13,7 +13,19 @@ export default defineConfig({
     defaultStrategy: 'load',
     prefetchAll: true,
   },
+  markdown: {
+    remarkRehype: {
+      footnoteLabel: 'notes:',
+      footnoteLabelTagName: 'h3',
+      footnoteLabelProperties: { className: ['footnote-title'] },
+      clobberPrefix: '',
+      footnoteBackContent: '⤣', //↥
+    },
+  },
   // trailingSlash: 'ignore',
-  integrations: [// tailwind(),
-  sitemap(), icon()]
+  integrations: [
+    // tailwind(),
+    sitemap(),
+    icon(),
+  ],
 });
