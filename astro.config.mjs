@@ -1,5 +1,6 @@
 // @ts-check
 import icon from 'astro-icon';
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -46,5 +47,6 @@ export default defineConfig({
     // tailwind(),
     sitemap(),
     icon(),
+    mdx(),
   ],
 });

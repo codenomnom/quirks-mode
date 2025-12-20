@@ -170,6 +170,10 @@ pre {
   max-width: calc(100vw - var(--scrollbar-width));
 }
 
+.cp_embed_wrapper {
+  margin: 1.5rem 0;
+}
+
 time {
   display: inline-block;
   font-size: 14px;
