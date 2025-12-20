@@ -1,0 +1,35 @@
+---
+title: Broken box decoration break
+date: 2025-12-20
+tags: [css]
+---
+
+import CodePen from '../../components/CodePen.astro';
+
+Today I found out my `box-decoration-break` was broken.
+
+**The issue**: I just made a fancy blog post title with padding and some background color, as I'm stylish 😎
+All sleek, until too long - wrapping on multiple lines makes me think twice about "stylish":
+
+<CodePen slug="emzOpMM" user="codenomnom" />
+
+My artish (half-dead) persona can't handle such an ugliness! So AI to the rescue (don't tell anyone).
+Turns out `box-decoration-break` has been around since Gangnam Style was #1 on the carts
+(I found this through AI as well, but I remember that shady period of my life):
+
+```css
+.definitely-not-crying {
+  display: inline;
+  background: white;
+  padding: 4px 8px; /* yes, this was the culprit of it all */
+  box-decoration-break: clone; /* been here since forever */
+  -webkit-box-decoration-break: clone; /* Safari tax */
+}
+```
+
+Each line gets its own box now. Like separate pieces. Revolutionary stuff, right?
+Besides paddings I think shadow is the next biggest win for such usage.
+
+Won't bother you with more - just go read the beloved [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-decoration-break).
+
+I'll need to search all old references for "experienced in CSS" and update those, right? 🧐
