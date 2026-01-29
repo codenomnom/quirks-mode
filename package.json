@@ -22,7 +22,7 @@
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/arvo": "^5.2.7",
-    "astro": "^5.16.15",
+    "astro": "^5.17.0",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.0",
     "rehype-external-links": "^3.0.0",
