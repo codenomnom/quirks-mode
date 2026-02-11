@@ -24,7 +24,7 @@
     "@fontsource/arvo": "^5.2.7",
     "astro": "^5.17.2",
     "astro-icon": "^1.1.5",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.1.1",
     "rehype-external-links": "^3.0.0",
     "sanitize-html": "^2.17.0",
     "sass": "^1.97.3",
