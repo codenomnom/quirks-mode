@@ -2,7 +2,7 @@
 import TagsList from "../components/TagsList.astro";
 import PostsList from "../components/PostsList.astro";
 import MainLayout from "../layouts/main.layout.astro";
-import { getAllPosts, getAllTags } from "../content/config";
+import { getAllPosts, getAllTags } from "../content.config";
 
 const tags = await getAllTags();
 const posts = await getAllPosts();

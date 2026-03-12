@@ -1,12 +1,12 @@
 ---
 import { render } from "astro:content";
-import { getAllPosts } from "../../content/config";
+import { getAllPosts } from "../../content.config";
 import PostLayout from "../../layouts/post.layout.astro";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: { post },
   }));
 }

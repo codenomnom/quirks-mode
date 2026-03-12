@@ -1,7 +1,7 @@
 ---
 import PostsList from "../../components/PostsList.astro";
 import MainLayout from "../../layouts/main.layout.astro";
-import { getAllTags, getPostsGroupedByTags } from "../../content/config";
+import { getAllTags, getPostsGroupedByTags } from "../../content.config";
 
 export async function getStaticPaths() {
   const tags = await getAllTags();

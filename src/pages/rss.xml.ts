@@ -4,7 +4,7 @@ import type { APIContext } from 'astro';
 import sanitizeHtml from 'sanitize-html';
 
 import { stripCodeTag } from '../utils';
-import { getAllPosts } from '../content/config';
+import { getAllPosts } from '../content.config';
 
 const parser = new MarkdownIt();
 
@@ -23,8 +23,8 @@ export async function GET(context: APIContext) {
         title: stripCodeTag(post.data.title),
         pubDate: post.data.date,
         description: post.data.description,
-        link: `/quirks/${post.slug}`, // IMPORTANT: make sure to update if changing the url
-        content: sanitizeHtml(parser.render(post.body), {
+        link: `/quirks/${post.id}`, // IMPORTANT: make sure to update if changing the url
+        content: sanitizeHtml(parser.render(post.body || ''), {
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
         }),
       }

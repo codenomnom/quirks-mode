@@ -6,8 +6,6 @@ import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
 
 
-// import tailwind from '@astrojs/tailwind';
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://quirks-mode.com',
@@ -44,7 +42,6 @@ export default defineConfig({
   },
   // trailingSlash: 'ignore',
   integrations: [
-    // tailwind(),
     sitemap(),
     icon(),
     mdx(),
