@@ -1,4 +1,6 @@
-import { defineCollection, getCollection, z, type CollectionEntry } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
+import { defineCollection, getCollection, type CollectionEntry } from 'astro:content';
 // import { glob } from 'astro/loaders'; // not available with legacy API
 
 const schema = z.object({
@@ -10,11 +12,9 @@ const schema = z.object({
 });
 
 const quirks = defineCollection({
-  type: 'content',
-  // loader: glob({ pattern: '**\/[^_]*.md', base: './src/quirks' }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/quirks' }),
   schema,
 });
-export const collections = { quirks };
 
 type Post = CollectionEntry<"quirks">;
 
@@ -69,3 +69,5 @@ export async function getAllTags() {
   const posts = await getPostsGroupedByTags();
   return Array.from(posts.keys());
 }
+
+export const collections = { quirks };
