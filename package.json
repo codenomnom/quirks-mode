@@ -20,7 +20,7 @@
     "@astrojs/mdx": "^6.0.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "@fontsource/arvo": "^5.2.7",
+    "@fontsource/arvo": "^5.3.0",
     "astro": "^6.4.8",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.3.0",
