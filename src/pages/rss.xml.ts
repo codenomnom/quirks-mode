@@ -6,7 +6,7 @@ import sanitizeHtml from 'sanitize-html';
 import { stripCodeTag } from '../utils';
 import { getAllPosts } from '../content.config';
 
-const parser = new MarkdownIt();
+const parser = new MarkdownIt({ linkify: true });
 
 export async function GET(context: APIContext) {
   const posts = await getAllPosts();
