@@ -33,5 +33,9 @@
     "@types/markdown-it": "^14.2.0",
     "@types/node": "^24.19.0",
     "@types/sanitize-html": "^2.16.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "@parcel/watcher@2.5.6": true
   }
 }
