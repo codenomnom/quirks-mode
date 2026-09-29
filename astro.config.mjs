@@ -3,6 +3,7 @@ import icon from 'astro-icon';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import rehypeExternalLinks from 'rehype-external-links';
 
 
@@ -14,31 +15,33 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          // @ts-ignore
-          rel: (el) => {
-            const href = el.properties.href;
-            const trustedDomains = ['quirks-mode.com', 'codenomnom.com', 'github.com/codenomnom'];
-            const isTrusted = trustedDomains.some((domain) => href.includes(domain));
+    processor: unified({
+      rehypePlugins: [
+        [
+          rehypeExternalLinks,
+          {
+            target: '_blank',
+            // @ts-ignore
+            rel: (el) => {
+              const href = el.properties.href;
+              const trustedDomains = ['quirks-mode.com', 'codenomnom.com', 'github.com/codenomnom'];
+              const isTrusted = trustedDomains.some((domain) => href.includes(domain));
 
-            return isTrusted
-              ? ['noopener', 'noreferrer']
-              : ['nofollow', 'noopener', 'noreferrer'];
-          }
-        },
+              return isTrusted
+                ? ['noopener', 'noreferrer']
+                : ['nofollow', 'noopener', 'noreferrer'];
+            }
+          },
+        ],
       ],
-    ],
-    remarkRehype: {
-      footnoteLabel: 'notes:',
-      footnoteLabelTagName: 'h3',
-      footnoteLabelProperties: { className: ['footnote-title'] },
-      clobberPrefix: '',
-      footnoteBackContent: '[⤣ back]', // ⤣↥
-    },
+      remarkRehype: {
+        footnoteLabel: 'notes:',
+        footnoteLabelTagName: 'h3',
+        footnoteLabelProperties: { className: ['footnote-title'] },
+        clobberPrefix: '',
+        footnoteBackContent: '[⤣ back]', // ⤣↥
+      },
+    }),
   },
   // trailingSlash: 'ignore',
   integrations: [
