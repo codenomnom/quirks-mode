@@ -27,7 +27,7 @@
     "markdown-it": "^15.0.2",
     "rehype-external-links": "^3.0.0",
     "sanitize-html": "^2.18.1",
-    "sass": "^1.105.1",
+    "sass": "^1.105.2",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
